@@ -5,7 +5,8 @@
   <title>Chenyue Zhang | Personal Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    :root{
+    /* global variable */
+    :root{ 
       --bg:#ccffcc;
       --green:#006600;
       --green-2:#004d00;
@@ -213,7 +214,7 @@
 
     /* --- Footer / Copyright --- */
     .site-footer{
-      position: fixed;
+      position: fixed;      /* 永远在左下角 */
       left: max(12px, env(safe-area-inset-left));
       bottom: max(12px, env(safe-area-inset-bottom));
       margin: 0;
@@ -224,7 +225,7 @@
       color: #1c4a1c;         
       font-size: 13px;        
       line-height: 1.2;
-      z-index: 1000;          /* 确保在最上层 */
+      z-index: 1000;          /* 和别的物体重叠时，确保copyright在最上层 */
     }
 
     /* small screens */
@@ -244,6 +245,7 @@
     <a class="github-link" href="https://github.com/Tibeauty" target="_blank" rel="noopener" aria-label="GitHub">
       <!-- GitHub mark (SVG) -->
       <svg viewBox="0 0 16 16" aria-hidden="true">
+        /* GitHub Logo Vector Path, similar to img, src = "" */
         <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
                  0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
                  -.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95
