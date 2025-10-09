@@ -1,80 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Basic Page</title>
-    <style>
-        body {
-            background-color: #ccffcc; /* Light green background */
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-        h1 {
-            text-align: center;
-            padding-top: 100px;
-            color: #006600;
-        }
-        p {
-            font-size: 18px;
-            color: #004d00;
-        }
-        .section {
-            text-align: left;
-            margin-top: 50px;
-            padding-left: 50px;
-        }
-        .profile {
-            display: flex;
-            align-items: center;
-        }
-        .profile img {
-            width: 120px;  /* 头像大小可自行调整 */
-            height: 120px;
-            margin-right: 20px;
-            object-fit: cover; /* 保持比例裁剪 */
-        }
-        .icon-container {
-            margin-top: 30px;
-            text-align: center;
-        }
-        .icon {
-            width: 50px;
-            height: 50px;
-            margin: 10px;
-            cursor: pointer;
-        }
-        .icon:hover {
-            opacity: 0.8;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Chenyue Zhang | Personal Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root{
+      --bg:#ccffcc;
+      --green:#006600;
+      --green-2:#004d00;
+      --card:#ffffff;
+      --card-soft:#f7fff7;
+      --card-border:#d8f3d8;
+      --shadow:0 10px 24px rgba(0,0,0,.08);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: #103b10;
+    }
+    h1{
+      text-align:center;
+      padding: 64px 16px 24px;
+      margin:0;
+      color: var(--green);
+      font-size: 36px;
+      letter-spacing:.3px;
+    }
+    .section{
+      max-width: 980px;
+      margin: 24px auto;
+      padding: 0 20px;
+    }
+
+    /* Introduction (left image + right text) */
+    .intro{
+      background: var(--card);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+    .profile{
+      display:flex;
+      align-items:center;
+      gap:20px;
+    }
+    .profile img{
+      width:300px;
+      height:300px;
+      object-fit: cover;           /* 方形且不变形 */
+      border-radius: 8px;          /* 轻微圆角，如果要完全方形可改为 0 */
+      box-shadow: 0 4px 14px rgba(0,0,0,.12);
+      flex: 0 0 auto;
+    }
+    .profile h2{
+      margin:0 0 8px;
+      color: var(--green);
+      font-size: 26px;
+    }
+    .profile p{
+      margin:0;
+      font-size: 18px;
+      color: var(--green-2);
+      line-height:1.6;
+    }
+
+    /* Interests */
+    .interests{
+      background: var(--card);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+    .interests h2{
+      margin:0 0 8px;
+      color: var(--green);
+      font-size: 26px;
+    }
+    .interests p{
+      margin:0 0 14px;
+      color:#1c4a1c;
+    }
+    .icon-container{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      flex-wrap: wrap;
+    }
+    .icon{
+      width:56px;
+      height:56px;
+      object-fit:cover;
+      border-radius:12px;
+      cursor:pointer;
+      transition: transform .15s ease, opacity .15s ease;
+      box-shadow: 0 6px 16px rgba(0,0,0,.12);
+      background:#fff;
+    }
+    .icon:hover{ transform: translateY(-2px); opacity:.9 }
+
+    /* Gaming Experience */
+    .gaming{
+      background: var(--card);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 22px;
+      margin-bottom: 80px;
+    }
+    .gaming h2{
+      margin:0 0 6px;
+      color: var(--green);
+      font-size: 26px;
+    }
+    .gaming .sub{
+      margin:0 0 18px;
+      color: #2f6b2f;
+      font-size: 14px;
+      opacity:.9;
+    }
+    .gx-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap:18px;
+    }
+    .gx-card{
+      background: var(--card-soft);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 16px 16px 10px;
+    }
+    .gx-card h3{
+      margin:0 0 8px;
+      font-size:18px;
+      color: var(--green);
+    }
+    .gx-card ul{
+      margin:0;
+      padding-left: 18px;
+      line-height:1.6;
+      color:#174d17;
+    }
+
+    /* small screens */
+    @media (max-width:600px){
+      h1{ padding-top: 36px; font-size: 28px; }
+      .profile{ flex-direction: column; align-items:flex-start }
+      .profile img{ width:104px; height:104px }
+    }
+  </style>
 </head>
 <body>
-    <h1>Welcome to My Website!</h1>
-    
-    <!-- Introduction Section -->
-    <div class="section">
-        <div class="profile">
-            <img src="images/my_picture.png" alt="Chenyue Zhang">
-            <div>
-                <h2>Introduction</h2>
-                <p>I am currently a third-year student at the University of British Columbia (UBC), pursuing a combined major in Computer Science and Statistics.</p>
-            </div>
-        </div>
+  <h1>Welcome to My Website!</h1>
+
+  <!-- Introduction -->
+  <section class="section intro" id="introduction">
+    <div class="profile">
+      <!-- 替换为你的真实头像路径 -->
+      <img src="images/your-profile-image.png" alt="Chenyue Zhang" />
+      <div>
+        <h2>Introduction</h2>
+        <p>
+          I am currently a third-year student at the University of British Columbia (UBC),
+          pursuing a <strong>Combined Major in Computer Science and Statistics</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interests -->
+  <section class="section interests" id="interests">
+    <h2>My Interests</h2>
+    <p>I enjoy game development, programming, and creating interactive experiences. Check out two of my games:</p>
+    <div class="icon-container">
+      <!-- 替换图标路径为你的实际文件 -->
+      <a href="https://yeahahaha.itch.io/merge-xiaohei" target="_blank" rel="noopener">
+        <img class="icon" src="images/icon1.png" alt="Merge Xiaohei" />
+      </a>
+      <a href="https://yeahahaha.itch.io/rpg-demp-protect-the-princess" target="_blank" rel="noopener">
+        <img class="icon" src="images/icon2.png" alt="RPG - Protect the Princess" />
+      </a>
+    </div>
+  </section>
+
+  <!-- Gaming Experience (translated from your PDF) -->
+  <section class="section gaming" id="gaming-experience">
+    <h2>Gaming Experience</h2>
+    <p class="sub">Highlights of the genres I enjoy and titles I’ve played or completed.</p>
+
+    <div class="gx-grid">
+      <div class="gx-card">
+        <h3>Favorite Genres</h3>
+        <ul>
+          <li>MOBA</li>
+          <li>Story-driven puzzle &amp; mystery (time-rewind, audio-based puzzles, hacking, text puzzles)</li>
+        </ul>
+      </div>
+
+      <div class="gx-card">
+        <h3>MOBA</h3>
+        <ul>
+          <li>Honor of Kings — ~2000 hours, Peak 2200+</li>
+          <li>League of Legends — ~300 hours</li>
+        </ul>
+      </div>
+
+      <div class="gx-card">
+        <h3>Anime-style Games</h3>
+        <ul>
+          <li>Genshin Impact — AR 59 (main story complete; Mondstadt &amp; Liyue fully explored)</li>
+          <li>Honkai: Star Rail — Lv 70 max (100% exploration; main &amp; side stories cleared; Spiral Abyss cleared)</li>
+          <li>Persona 5 — 15 hours (in progress)</li>
+        </ul>
+      </div>
+
+      <div class="gx-card">
+        <h3>FPS</h3>
+        <ul>
+          <li>PUBG — 100+ hours</li>
+        </ul>
+      </div>
+
+      <div class="gx-card">
+        <h3>Story &amp; Puzzle (Completed)</h3>
+        <ul>
+          <li>Anthem of the Tower of Babel</li>
+          <li>The Operation (Patchwork / Hotline puzzle)</li>
+          <li>Cyber Manhunt (1 &amp; 2)</li>
+          <li>Traveler of Shanhe / Detective of Shanhe</li>
+          <li>Sanfu</li>
+          <li>Firework</li>
+          <li>Trinity</li>
+          <li>Word Game</li>
+          <li>Red Paper / Funeral (喜丧)</li>
+          <li>Detective Di: Listening / Unheard (疑案追声)</li>
+          <li>The Almost Gone</li>
+          <li>Gorogoa</li>
+          <li>Hacknet</li>
+          <li>Little Nightmares</li>
+          <li>Ori and the Will of the Wisps</li>
+          <li>Rusty Lake Trilogy</li>
+          <li>Untitled Goose Game</li>
+        </ul>
+      </div>
+
+      <div class="gx-card">
+        <h3>AAA Titles</h3>
+        <ul>
+          <li>It Takes Two — 14h (cleared)</li>
+          <li>Blanc / The Past Within — 13h (cleared)</li>
+          <li>A Way Out — 12h (cleared)</li>
+          <li>Death Stranding — 5h</li>
+        </ul>
+      </div>
+
+      <div class="gx-card">
+        <h3>Survival / Builder / Sim</h3>
+        <ul>
+          <li>Stardew Valley — 130+h</li>
+          <li>Minecraft — 50h</li>
+          <li>Spiritfarer — 36h</li>
+          <li>Cult of the Lamb — 8h</li>
+          <li>Don’t Starve — 8h</li>
+          <li>Dave the Diver — 10h (in progress)</li>
+          <li>Chinese Parents — 18h</li>
+          <li>Astroneer — 10h</li>
+        </ul>
+      </div>
+
+      <div class="gx-card">
+        <h3>Co-op Games</h3>
+        <ul>
+          <li>Fall Guys — 130+h</li>
+          <li>Content Warning — 10h</li>
+          <li>We Were Here Forever — cleared</li>
+          <li>It Takes Two — cleared</li>
+          <li>Operation: Tango — cleared</li>
+        </ul>
+      </div>
     </div>
 
-    <!-- Interests Section -->
-    <div class="section">
-        <h2>My Interests</h2>
-        <p>I enjoy game development, programming, and creating interactive experiences. Here are some of my game projects:</p>
-
-        <div class="icon-container">
-            <a href="https://yeahahaha.itch.io/merge-xiaohei" target="_blank">
-                <img src="images/icon1.png" alt="Game 1" class="icon">
-            </a>
-            <a href="https://yeahahaha.itch.io/rpg-demp-protect-the-princess" target="_blank">
-                <img src="images/icon2.png" alt="Game 2" class="icon">
-            </a>
-        </div>
-    </div>
+   
+  </section>
 </body>
 </html>
