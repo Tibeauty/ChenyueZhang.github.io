@@ -70,11 +70,11 @@
       gap:20px;
     }
     .profile img{
-      width:300px; height:300px;
-      object-fit: cover;
-      border-radius: 8px; /* 如需完全直角 => 改为 0 */
+      width: 300px;  
+      height: 300px; 
+      object-fit: contain;  /* 保证图片完整显示 */
+      border-radius: 8px;   /* 可选，保持圆角 */
       box-shadow: 0 4px 14px rgba(0,0,0,.12);
-      flex: 0 0 auto;
     }
     .profile h2{
       margin:0 0 10px;
