@@ -20,8 +20,9 @@
             color: #004d00;
         }
         .section {
-            text-align: center;
+            text-align: left;
             margin-top: 50px;
+            padding-left: 50px;
         }
         .icon-container {
             margin-top: 30px;
@@ -35,16 +36,33 @@
         .icon:hover {
             opacity: 0.8;
         }
+        .profile {
+            display: flex;
+            align-items: center;
+        }
+        .profile img {
+            width: 100px; /* Adjust as needed */
+            height: 100px; /* Adjust as needed */
+            border-radius: 50%; /* Circular image */
+            margin-right: 20px;
+        }
     </style>
 </head>
 <body>
     <h1>Welcome to My Website!</h1>
     
+    <!-- Self Introduction Section -->
     <div class="section">
-        <h2>Self Introduction</h2>
-        <p>Hello, my name is Chenyue Zhang. I am a student studying at the University of British Columbia (UBC). I am passionate about mathematics, computer science, and game development.</p>
+        <div class="profile">
+            <img src="images/your-profile-image.png" alt="Chenyue Zhang">
+            <div>
+                <h2>Introduction</h2>
+                <p>I am currently in my third year at the University of British Columbia (UBC), pursuing a combined major in Computer Science and Statistics.</p>
+            </div>
+        </div>
     </div>
 
+    <!-- Interests Section -->
     <div class="section">
         <h2>My Interests</h2>
         <p>I enjoy game development, programming, and creating interactive experiences. Here are some of my game projects:</p>
