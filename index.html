@@ -15,7 +15,6 @@
             color: #006600;
         }
         p {
-            text-align: center;
             font-size: 18px;
             color: #004d00;
         }
@@ -24,8 +23,19 @@
             margin-top: 50px;
             padding-left: 50px;
         }
+        .profile {
+            display: flex;
+            align-items: center;
+        }
+        .profile img {
+            width: 120px;  /* 头像大小可自行调整 */
+            height: 120px;
+            margin-right: 20px;
+            object-fit: cover; /* 保持比例裁剪 */
+        }
         .icon-container {
             margin-top: 30px;
+            text-align: center;
         }
         .icon {
             width: 50px;
@@ -36,28 +46,18 @@
         .icon:hover {
             opacity: 0.8;
         }
-        .profile {
-            display: flex;
-            align-items: center;
-        }
-        .profile img {
-            width: 100px; /* Adjust as needed */
-            height: 100px; /* Adjust as needed */
-            border-radius: 50%; /* Circular image */
-            margin-right: 20px;
-        }
     </style>
 </head>
 <body>
     <h1>Welcome to My Website!</h1>
     
-    <!-- Self Introduction Section -->
+    <!-- Introduction Section -->
     <div class="section">
         <div class="profile">
             <img src="images/my_picture.png" alt="Chenyue Zhang">
             <div>
                 <h2>Introduction</h2>
-                <p>I am currently in my third year at the University of British Columbia (UBC), pursuing a combined major in Computer Science and Statistics.</p>
+                <p>I am currently a third-year student at the University of British Columbia (UBC), pursuing a combined major in Computer Science and Statistics.</p>
             </div>
         </div>
     </div>
