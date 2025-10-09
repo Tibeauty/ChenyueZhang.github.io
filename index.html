@@ -13,29 +13,51 @@
       --card-soft:#f7fff7;
       --card-border:#d8f3d8;
       --shadow:0 10px 24px rgba(0,0,0,.08);
+      --text:#103b10;
     }
     *{box-sizing:border-box}
     body{
       margin:0;
       font-family: Arial, Helvetica, sans-serif;
       background: var(--bg);
-      color: #103b10;
+      color: var(--text);
     }
-    h1{
-      text-align:center;
-      padding: 64px 16px 24px;
+
+    /* Page Title + GitHub */
+    .title-wrap{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      padding: 56px 16px 20px;
+    }
+    .title-wrap h1{
       margin:0;
       color: var(--green);
       font-size: 36px;
       letter-spacing:.3px;
+      text-align:center;
     }
+    .github-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:36px; height:36px;
+      border-radius:50%;
+      background:#fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,.12);
+      transition: transform .15s ease, opacity .15s ease;
+    }
+    .github-link:hover{ transform: translateY(-2px); opacity:.9 }
+    .github-link svg{ width:20px; height:20px; fill:#111 }
+
     .section{
       max-width: 980px;
       margin: 24px auto;
       padding: 0 20px;
     }
 
-    /* Introduction (left image + right text) */
+    /* Introduction */
     .intro{
       background: var(--card);
       border-radius: 16px;
@@ -44,30 +66,29 @@
     }
     .profile{
       display:flex;
-      align-items:center;
+      align-items:flex-start;
       gap:20px;
     }
     .profile img{
-      width:300px;
-      height:300px;
-      object-fit: cover;           /* 方形且不变形 */
-      border-radius: 8px;          /* 轻微圆角，如果要完全方形可改为 0 */
+      width:300px; height:300px;
+      object-fit: cover;
+      border-radius: 8px; /* 如需完全直角 => 改为 0 */
       box-shadow: 0 4px 14px rgba(0,0,0,.12);
       flex: 0 0 auto;
     }
     .profile h2{
-      margin:0 0 8px;
+      margin:0 0 10px;
       color: var(--green);
       font-size: 26px;
     }
     .profile p{
-      margin:0;
-      font-size: 18px;
+      margin:0 0 10px;
+      font-size: 17px;
       color: var(--green-2);
-      line-height:1.6;
+      line-height:1.7;
     }
 
-    /* Interests */
+    /* Interests (icons left, link on names) */
     .interests{
       background: var(--card);
       border-radius: 16px;
@@ -79,35 +100,81 @@
       color: var(--green);
       font-size: 26px;
     }
-    .interests p{
-      margin:0 0 14px;
-      color:#1c4a1c;
+    .interests p.lead{ margin:0 0 14px; color:#1c4a1c; }
+    .game-list{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:12px;
     }
-    .icon-container{
+    .game-item{
       display:flex;
       align-items:center;
-      gap:16px;
-      flex-wrap: wrap;
-    }
-    .icon{
-      width:56px;
-      height:56px;
-      object-fit:cover;
+      gap:14px;
+      background: var(--card-soft);
+      border:1px solid var(--card-border);
       border-radius:12px;
-      cursor:pointer;
-      transition: transform .15s ease, opacity .15s ease;
-      box-shadow: 0 6px 16px rgba(0,0,0,.12);
-      background:#fff;
+      padding:10px;
     }
-    .icon:hover{ transform: translateY(-2px); opacity:.9 }
+    .game-item img.icon{
+      width:56px; height:56px;
+      object-fit:cover;
+      border-radius:10px;
+      background:#fff;
+      box-shadow: 0 6px 16px rgba(0,0,0,.10);
+      flex:0 0 auto;
+    }
+    .game-meta{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+    }
+    .game-link{
+      color:#0b5f0b;
+      text-decoration:none;
+      font-weight:700;
+    }
+    .game-link:hover{ text-decoration:underline }
+    .game-desc{
+      margin:0; font-size:14px; color:#1d4f1d;
+    }
 
-    /* Gaming Experience */
-    .gaming{
+    /* Resume Download */
+    .resume{
       background: var(--card);
       border-radius: 16px;
       box-shadow: var(--shadow);
       padding: 22px;
       margin-bottom: 80px;
+    }
+    .resume h2{
+      margin:0 0 8px;
+      color: var(--green);
+      font-size: 26px;
+    }
+    .resume p{ margin:0 0 14px; color:#1c4a1c; }
+    .btn{
+      display:inline-block;
+      padding:10px 16px;
+      border-radius:10px;
+      background:#0a7a0a;
+      color:#fff;
+      text-decoration:none;
+      box-shadow: 0 6px 16px rgba(0,0,0,.12);
+      transition: transform .15s ease, opacity .15s ease, box-shadow .15s ease;
+      font-weight:700;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      opacity:.95;
+      box-shadow: 0 10px 20px rgba(0,0,0,.14);
+    }
+
+    /* Gaming Experience (from your PDF) */
+    .gaming{
+      background: var(--card);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 22px;
     }
     .gaming h2{
       margin:0 0 6px;
@@ -142,46 +209,96 @@
       line-height:1.6;
       color:#174d17;
     }
+    .gx-note{
+      margin-top:10px;
+      font-size:12px;
+      color:#3d6e3d;
+      opacity:.85;
+    }
 
     /* small screens */
     @media (max-width:600px){
-      h1{ padding-top: 36px; font-size: 28px; }
-      .profile{ flex-direction: column; align-items:flex-start }
+      .title-wrap{ padding-top: 32px }
+      .title-wrap h1{ font-size: 28px }
+      .profile{ flex-direction: column; }
       .profile img{ width:104px; height:104px }
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to My Website!</h1>
+  <!-- Title with GitHub icon -->
+  <div class="title-wrap">
+    <h1>Welcome to My Website!</h1>
+    <a class="github-link" href="https://github.com/Tibeauty" target="_blank" rel="noopener" aria-label="GitHub">
+      <!-- GitHub mark (SVG) -->
+      <svg viewBox="0 0 16 16" aria-hidden="true">
+        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
+                 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
+                 -.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95
+                 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27
+                 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48
+                 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/>
+      </svg>
+    </a>
+  </div>
 
   <!-- Introduction -->
   <section class="section intro" id="introduction">
     <div class="profile">
-      <!-- 替换为你的真实头像路径 -->
-      <img src="images/your-profile-image.png" alt="Chenyue Zhang" />
+      <img src="images/my_picture.png" alt="Chenyue Zhang" />
       <div>
         <h2>Introduction</h2>
         <p>
-          I am currently a third-year student at the University of British Columbia (UBC),
-          pursuing a <strong>Combined Major in Computer Science and Statistics</strong>.
+          I am a third-year undergraduate at the University of British Columbia (UBC), pursuing a
+          <strong>Combined Major in Computer Science and Statistics</strong>. My academic interests focus on the
+          intersection of data-driven methods and software systems, including algorithm design, statistical modeling,
+          and practical applications in interactive experiences and game development.
+        </p>
+        <p>
+          Beyond coursework, I actively build small games and utility tools, collaborate with peers on hands-on projects,
+          and continually refine my skills in programming, UI/UX, and analytical thinking. I value clarity, rigor, and
+          maintainable code, and I enjoy turning complex ideas into approachable products.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Interests -->
+  <!-- Interests (icons left; link on game names) -->
   <section class="section interests" id="interests">
     <h2>My Interests</h2>
-    <p>I enjoy game development, programming, and creating interactive experiences. Check out two of my games:</p>
-    <div class="icon-container">
-      <!-- 替换图标路径为你的实际文件 -->
-      <a href="https://yeahahaha.itch.io/merge-xiaohei" target="_blank" rel="noopener">
-        <img class="icon" src="images/icon1.png" alt="Merge Xiaohei" />
-      </a>
-      <a href="https://yeahahaha.itch.io/rpg-demp-protect-the-princess" target="_blank" rel="noopener">
-        <img class="icon" src="images/icon2.png" alt="RPG - Protect the Princess" />
-      </a>
+    <p class="lead">I enjoy game development, programming, and creating interactive experiences.</p>
+
+    <div class="game-list">
+      <!-- Game 1 -->
+      <div class="game-item">
+        <img class="icon" src="images/icon1.png" alt="Merge Xiaohei icon" />
+        <div class="game-meta">
+          <a class="game-link" href="https://yeahahaha.itch.io/merge-xiaohei" target="_blank" rel="noopener">
+            Merge Xiaohei
+          </a>
+          <p class="game-desc">A casual merge puzzle with clean visuals and playful interactions.</p>
+        </div>
+      </div>
+
+      <!-- Game 2 -->
+      <div class="game-item">
+        <img class="icon" src="images/icon2.png" alt="RPG - Protect the Princess icon" />
+        <div class="game-meta">
+          <a class="game-link" href="https://yeahahaha.itch.io/rpg-demp-protect-the-princess" target="_blank" rel="noopener">
+            RPG — Protect the Princess
+          </a>
+          <p class="game-desc">A small RPG demo featuring exploration, combat, and a light narrative loop.</p>
+        </div>
+      </div>
     </div>
+  </section>
+
+  <!-- Resume Download -->
+  <section class="section resume" id="resume">
+    <h2>Resume</h2>
+    <p>You can download my latest resume using the button below.</p>
+    <!-- 请确保文件存在：assets/resume.pdf -->
+    <a class="btn" href="assets/resume.pdf" download>Download My Resume (PDF)</a>
   </section>
 
   <!-- Gaming Experience (translated from your PDF) -->
@@ -281,7 +398,7 @@
       </div>
     </div>
 
-   
+    <div class="gx-note">Translated and formatted from your original Chinese PDF gaming notes.</div>
   </section>
 </body>
 </html>
