@@ -144,7 +144,7 @@
       border-radius: 16px;
       box-shadow: var(--shadow);
       padding: 22px;
-      margin-bottom: 80px;
+      margin-bottom: 24px;
     }
     .resume h2{
       margin:0 0 8px;
@@ -211,6 +211,21 @@
       color:#174d17;
     }
 
+    /* --- Footer / Copyright --- */
+    .site-footer{
+      max-width: 980px;
+      margin: 18px auto 40px;      /* 与上/下内容的间距 */
+      padding: 12px 16px;
+      text-align: center;
+      font-size: 14px;
+      color: #1c4a1c;
+      background: var(--card);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+    .site-footer a{ color:#0b5f0b; text-decoration:none; }
+    .site-footer a:hover{ text-decoration:underline; }
+
     /* small screens */
     @media (max-width:600px){
       .title-wrap{ padding-top: 32px }
@@ -218,6 +233,7 @@
       .profile{ flex-direction: column; }
       .profile img{ width:104px; height:104px }
     }
+    
   </style>
 </head>
 <body>
@@ -384,6 +400,13 @@
         </ul>
       </div>
     </div>
+
+    <footer class="site-footer">
+      © <span id="year"></span> Chenyue Zhang. All rights reserved.
+    </footer>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 
 
   </section>
